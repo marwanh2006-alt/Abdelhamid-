@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 /* Existing, page-specific art direction is compiled through the Tailwind build. */
+@import "../../public/assets/css/core/fonts.css";
 @import "../../public/assets/css/core/variables.css";
 @import "../../public/assets/css/core/reset.css";
 @import "../../public/assets/css/core/typography.css";

@@ -1,4 +1,3 @@
-import { PageShell } from '@/components/PageShell';
 import { QuoteContent } from '@/components/pages/QuoteContent';
 import { createPageMetadata } from '@/lib/site';
 import { preload } from 'react-dom';
@@ -18,9 +17,5 @@ export default function QuotePage() {
     fetchPriority: 'high',
   });
 
-  return (
-    <PageShell scripts={['/assets/js/quote.js']}>
-      <QuoteContent />
-    </PageShell>
-  );
+  return <QuoteContent />;
 }

@@ -703,21 +703,182 @@
 }
 
 
-.quote-file-selection-status {
+.quote-file-error {
 
-    min-width: 0;
+    margin: 0;
 
-    max-width: 100%;
+    color: #ff9fa6;
 
-    overflow-wrap: anywhere;
+    font:
+        500 12px/1.5 Inter,
+        sans-serif;
 
 }
 
 
-.quote-file-selection-count,
-.quote-file-selection-name {
+.quote-selected-files {
 
-    display: block;
+    display: grid;
+
+    gap: 9px;
+
+    margin-top: 2px;
+
+}
+
+
+.quote-selected-files-header {
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,.58);
+
+    font:
+        600 11px/1.4 Inter,
+        sans-serif;
+
+    letter-spacing: .04em;
+
+    text-transform: uppercase;
+
+}
+
+
+.quote-selected-files-list {
+
+    display: grid;
+
+    gap: 8px;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+
+}
+
+
+.quote-selected-file {
+
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 16px;
+
+    padding: 11px 12px 11px 15px;
+
+    border:
+        1px solid
+        rgba(115,153,255,.18);
+
+    border-radius: 10px;
+
+    background:
+        rgba(7,15,33,.58);
+
+}
+
+
+.quote-selected-file-copy {
+
+    min-width: 0;
+
+    display: grid;
+
+    gap: 3px;
+
+}
+
+
+.quote-selected-file-name {
+
+    overflow: hidden;
+
+    color:
+        rgba(255,255,255,.86);
+
+    font:
+        500 12px/1.35 Inter,
+        sans-serif;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+}
+
+
+.quote-selected-file-size {
+
+    color:
+        rgba(255,255,255,.42);
+
+    font:
+        400 10px/1.3 Inter,
+        sans-serif;
+
+}
+
+
+.quote-remove-file {
+
+    min-height: 36px;
+
+    flex: 0 0 auto;
+
+    padding: 0 13px;
+
+    border:
+        1px solid
+        rgba(255,143,152,.24);
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    color: #ffbdc2;
+
+    background:
+        rgba(128,30,42,.16);
+
+    font:
+        600 11px/1 Inter,
+        sans-serif;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease;
+
+}
+
+
+.quote-remove-file:hover,
+.quote-remove-file:focus-visible {
+
+    border-color:
+        rgba(255,143,152,.52);
+
+    color: #fff;
+
+    background:
+        rgba(149,38,51,.30);
+
+}
+
+
+.quote-remove-file:disabled {
+
+    cursor: not-allowed;
+
+    opacity: .55;
 
 }
 
@@ -1066,6 +1227,15 @@
     .quote-upload {
         min-height: 80px;
         padding: 14px;
+    }
+
+    .quote-selected-file {
+        gap: 10px;
+        padding-left: 12px;
+    }
+
+    .quote-remove-file {
+        min-height: 38px;
     }
 
     .quote-submit-area {

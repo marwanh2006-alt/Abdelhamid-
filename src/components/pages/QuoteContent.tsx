@@ -2,12 +2,43 @@
 
 /* Migrated from the legacy src/content/quote.html fragment. */
 
-import { useState, type FormEvent } from 'react';
+import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { SiteLink } from '@/components/SiteLink';
+
+const MAX_QUOTE_FILES = 5;
 
 export function QuoteContent() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [fileError, setFileError] = useState('');
+
+  function handleFileChange(event: ChangeEvent<HTMLInputElement>) {
+    const incomingFiles = Array.from(event.currentTarget.files ?? []);
+    event.currentTarget.value = '';
+
+    if (incomingFiles.length === 0) {
+      return;
+    }
+
+    const availableSlots = Math.max(0, MAX_QUOTE_FILES - selectedFiles.length);
+    const acceptedFiles = incomingFiles.slice(0, availableSlots);
+    const rejectedCount = incomingFiles.length - acceptedFiles.length;
+
+    setSelectedFiles([...selectedFiles, ...acceptedFiles]);
+    setFileError(
+      rejectedCount > 0
+        ? `You can upload a maximum of ${MAX_QUOTE_FILES} files. ${rejectedCount} extra ${rejectedCount === 1 ? 'file was' : 'files were'} not added.`
+        : '',
+    );
+  }
+
+  function removeSelectedFile(indexToRemove: number) {
+    setSelectedFiles((files) =>
+      files.filter((_, index) => index !== indexToRemove),
+    );
+    setFileError('');
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -16,6 +47,10 @@ export function QuoteContent() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    formData.delete('files[]');
+    selectedFiles.forEach((file) => {
+      formData.append('files[]', file, file.name);
+    });
 
     try {
       const res = await fetch('/api/quote', {
@@ -33,6 +68,8 @@ export function QuoteContent() {
 
       setStatus('success');
       form.reset();
+      setSelectedFiles([]);
+      setFileError('');
     } catch {
       setStatus('error');
       setErrorMsg('Network error. Please check your connection and try again.');
@@ -263,13 +300,60 @@ export function QuoteContent() {
                                           10 MiB each and 25 MiB total.
                                       </span>
 
-                                      <span id="quote-files-status" className="quote-file-selection-status" role="status" hidden={true}></span>
-
                                   </div>
 
                               </label>
 
-                              <input id="quote-files" className="quote-file-input" type="file" name="files[]" aria-labelledby="quote-files-label quote-files-instructions" multiple={true} accept=".jpg,.jpeg,.png,.pdf,.dwg,.dxf,.step,.stp,.iges,.igs" aria-describedby="quote-files-label quote-files-instructions" />
+                              <input
+                                  id="quote-files"
+                                  className="quote-file-input"
+                                  type="file"
+                                  name="files[]"
+                                  aria-labelledby="quote-files-label quote-files-instructions"
+                                  multiple={true}
+                                  accept=".jpg,.jpeg,.png,.pdf,.dwg,.dxf,.step,.stp,.iges,.igs"
+                                  aria-describedby={fileError ? 'quote-files-description quote-files-error' : 'quote-files-description'}
+                                  aria-invalid={fileError ? true : undefined}
+                                  onChange={handleFileChange}
+                              />
+
+                              {fileError && (
+                                  <p id="quote-files-error" className="quote-file-error" role="alert">
+                                      {fileError}
+                                  </p>
+                              )}
+
+                              {selectedFiles.length > 0 && (
+                                  <div className="quote-selected-files" aria-live="polite">
+                                      <p className="quote-selected-files-header">
+                                          {selectedFiles.length} of {MAX_QUOTE_FILES} files selected
+                                      </p>
+
+                                      <ul className="quote-selected-files-list">
+                                          {selectedFiles.map((file, index) => (
+                                              <li
+                                                  className="quote-selected-file"
+                                                  key={`${file.name}-${file.size}-${file.lastModified}-${index}`}
+                                              >
+                                                  <span className="quote-selected-file-copy">
+                                                      <span className="quote-selected-file-name">{file.name}</span>
+                                                      <span className="quote-selected-file-size">{formatFileSize(file.size)}</span>
+                                                  </span>
+
+                                                  <button
+                                                      type="button"
+                                                      className="quote-remove-file"
+                                                      onClick={() => removeSelectedFile(index)}
+                                                      disabled={status === 'sending'}
+                                                      aria-label={`Remove ${file.name}`}
+                                                  >
+                                                      Remove
+                                                  </button>
+                                              </li>
+                                          ))}
+                                      </ul>
+                                  </div>
+                              )}
 
 
                           </div>
@@ -316,4 +400,10 @@ export function QuoteContent() {
       </main>
     </>
   );
+}
+
+function formatFileSize(bytes: number) {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${Math.ceil(bytes / 1024)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }

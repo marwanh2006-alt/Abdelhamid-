@@ -56,8 +56,29 @@ export function ClientChrome() {
         
         if (element) {
           e.preventDefault();
-          element.scrollIntoView({ behavior: 'smooth' });
-          window.history.pushState(null, '', href);
+
+          // Temporarily disable content-visibility on all showroom categories
+          // so the browser calculates real heights before scrolling.
+          const categories = document.querySelectorAll<HTMLElement>('.showroom-category');
+          categories.forEach((el) => {
+            el.style.contentVisibility = 'visible';
+          });
+
+          // Force a reflow so the browser lays out with real dimensions
+          void element.offsetTop;
+
+          // Use requestAnimationFrame to scroll after layout is stable
+          requestAnimationFrame(() => {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.history.pushState(null, '', href);
+
+            // Restore content-visibility after scroll completes
+            setTimeout(() => {
+              categories.forEach((el) => {
+                el.style.contentVisibility = '';
+              });
+            }, 1200);
+          });
         }
       }
     };

@@ -14,7 +14,7 @@ export function HomeContent() {
 
               {/* Background */}
               <div className="hero-background">
-                  <img src="/maaro.jpeg" alt="" loading="eager" fetchPriority="high" />
+                  <img src="/assets/images/heroo.jpeg" alt="" loading="eager" fetchPriority="high" />
               </div>
 
 

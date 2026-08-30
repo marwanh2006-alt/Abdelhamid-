@@ -1,6 +1,6 @@
 import { chromium } from 'playwright';
 
-const BASE = process.argv[2] || 'https://abdelhameed-ten.vercel.app';
+const BASE = process.argv[2] || 'https://abdelhamid.co';
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });

@@ -1,0 +1,541 @@
+/* =========================================================
+   SHARED SITE FOOTER
+   Premium industrial / liquid-glass design system
+   ========================================================= */
+
+.site-footer {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    flex: 0 0 auto;
+    align-self: stretch;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+    margin-top: auto;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 14% 8%, rgba(49, 93, 204, 0.30), transparent 30%),
+        radial-gradient(circle at 92% 28%, rgba(95, 140, 255, 0.12), transparent 24%),
+        linear-gradient(150deg, #061126 0%, #020713 62%, #030915 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.site-footer-grid {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.22;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(to bottom, #000, transparent 78%);
+}
+
+.site-footer-shell {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    padding-right: clamp(15px, 3vw, 48px);
+    padding-left: clamp(15px, 3vw, 48px);
+}
+
+.footer-cta,
+.footer-main,
+.footer-bottom,
+.footer-cta-copy,
+.footer-brand,
+.footer-column {
+    min-width: 0;
+}
+
+.footer-cta {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 56px;
+    padding: 96px 0 72px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-cta-copy {
+    max-width: 880px;
+}
+
+.footer-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 22px;
+    color: var(--blue-bright);
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.footer-eyebrow::before {
+    content: "";
+    width: 38px;
+    height: 1px;
+    background: currentColor;
+}
+
+.footer-cta h2 {
+    max-width: 820px;
+    margin: 0;
+    color: #ffffff;
+    font-family: var(--font-title);
+    font-size: clamp(2.3rem, 4.6vw, 4.65rem);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    text-wrap: balance;
+}
+
+.footer-cta-description {
+    max-width: 650px;
+    margin: 26px 0 0;
+    color: var(--text-soft);
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.footer-cta-button {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 18px;
+    min-height: 64px;
+    padding: 8px 9px 8px 26px;
+    color: #ffffff;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    background: linear-gradient(135deg, var(--blue-light), var(--blue));
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    border-radius: var(--radius-pill);
+    box-shadow:
+        0 18px 48px rgba(49, 93, 204, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.34);
+}
+
+.footer-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 24px 62px rgba(49, 93, 204, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.40);
+}
+
+.footer-cta-arrow {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    color: #061126;
+    font-size: 1.1rem;
+    background: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.35s ease;
+}
+
+.footer-cta-button:hover .footer-cta-arrow {
+    transform: rotate(45deg);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: minmax(300px, 1.55fr) minmax(150px, 0.7fr) minmax(280px, 1.15fr);
+    gap: clamp(48px, 7vw, 128px);
+    padding: 72px 0 68px;
+}
+
+.footer-brand-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-brand-link img {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+}
+
+.footer-brand-link span {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand-link strong {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+}
+
+.footer-brand-link small {
+    margin-top: 5px;
+    color: var(--text-muted);
+    font-size: 0.56rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.footer-brand-description {
+    max-width: 400px;
+    margin: 24px 0 0;
+    color: var(--text-soft);
+    font-size: 0.91rem;
+    line-height: 1.75;
+}
+
+.footer-credentials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 25px;
+}
+
+.footer-credentials span {
+    padding: 7px 10px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.61rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.045);
+}
+
+.footer-column h2 {
+    margin: 4px 0 25px;
+    color: rgba(255, 255, 255, 0.44);
+    font-size: 0.69rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+}
+
+.footer-column li + li {
+    margin-top: 13px;
+}
+
+.footer-column .footer-link {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding-bottom: 2px;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.89rem;
+    line-height: 1.45;
+}
+
+.footer-column .footer-link::after,
+.footer-address-link::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: right;
+    background: var(--blue-bright);
+    transition: transform 0.35s ease;
+}
+
+.footer-column .footer-link:hover,
+.footer-address-link:hover,
+.footer-contact-links a:hover {
+    color: #ffffff;
+}
+
+.footer-column .footer-link:hover::after,
+.footer-address-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.footer-contact address {
+    color: inherit;
+    font-style: normal;
+}
+
+.footer-address-link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 3px;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.87rem;
+    line-height: 1.75;
+}
+
+.footer-contact-links {
+    display: grid;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.footer-contact-links a {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: rgba(255, 255, 255, 0.80);
+    font-size: 0.87rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.footer-contact-links span {
+    color: rgba(255, 255, 255, 0.38);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: auto;
+    padding: 25px 0 calc(32px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.43);
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+
+.footer-origin {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    text-align: right;
+}
+
+.footer-origin span {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 auto;
+    background: var(--blue-bright);
+    border-radius: 50%;
+    box-shadow: 0 0 14px rgba(130, 168, 255, 0.82);
+}
+
+/* =========================================================
+   ABOUT PAGE VARIANT
+   The shared geometry stays identical across every route. Only
+   material, color, and display typography shift to the About
+   page's editorial parchment / walnut / bronze language.
+   ========================================================= */
+
+body:has(.about-page) .site-footer {
+    color: #fff9ef;
+    background:
+        radial-gradient(circle at 14% 8%, rgba(169, 120, 60, 0.30), transparent 31%),
+        radial-gradient(circle at 90% 22%, rgba(83, 111, 159, 0.14), transparent 25%),
+        linear-gradient(150deg, #382315 0%, #20130d 58%, #0d1018 100%);
+    border-top-color: rgba(255, 239, 215, 0.18);
+}
+
+body:has(.about-page) .site-footer-grid {
+    opacity: 0.24;
+    background-image:
+        linear-gradient(rgba(236, 208, 169, 0.065) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(236, 208, 169, 0.065) 1px, transparent 1px);
+}
+
+body:has(.about-page) .footer-cta,
+body:has(.about-page) .footer-bottom {
+    border-color: rgba(255, 231, 198, 0.15);
+}
+
+body:has(.about-page) .footer-eyebrow {
+    color: #d5aa73;
+}
+
+body:has(.about-page) .footer-cta h2 {
+    max-width: 850px;
+    color: #fff8ed;
+    font-family: "Cormorant Garamond", "Times New Roman", serif;
+    font-size: clamp(2.8rem, 5.2vw, 5.25rem);
+    font-weight: 600;
+    line-height: 0.94;
+    letter-spacing: -0.038em;
+}
+
+body:has(.about-page) .footer-cta-description,
+body:has(.about-page) .footer-brand-description {
+    color: rgba(255, 242, 222, 0.67);
+}
+
+body:has(.about-page) .footer-cta-button {
+    color: #fffaf2;
+    background: linear-gradient(135deg, #bd8a51, #7f4f2a);
+    border-color: rgba(255, 235, 206, 0.34);
+    box-shadow:
+        0 18px 48px rgba(96, 55, 24, 0.40),
+        inset 0 1px 0 rgba(255, 246, 231, 0.34);
+}
+
+body:has(.about-page) .footer-cta-button:hover {
+    box-shadow:
+        0 24px 62px rgba(112, 65, 29, 0.48),
+        inset 0 1px 0 rgba(255, 246, 231, 0.42);
+}
+
+body:has(.about-page) .footer-cta-arrow {
+    color: #5a351d;
+    background: #fff7eb;
+}
+
+body:has(.about-page) .footer-brand-link strong,
+body:has(.about-page) .footer-column .footer-link:hover,
+body:has(.about-page) .footer-address-link:hover,
+body:has(.about-page) .footer-contact-links a:hover {
+    color: #fff8ed;
+}
+
+body:has(.about-page) .footer-brand-link small,
+body:has(.about-page) .footer-column h2,
+body:has(.about-page) .footer-contact-links span,
+body:has(.about-page) .footer-bottom p {
+    color: rgba(255, 231, 198, 0.46);
+}
+
+body:has(.about-page) .footer-credentials span {
+    color: rgba(255, 239, 218, 0.72);
+    border-color: rgba(255, 224, 185, 0.16);
+    background: rgba(255, 235, 207, 0.05);
+}
+
+body:has(.about-page) .footer-column .footer-link,
+body:has(.about-page) .footer-address-link,
+body:has(.about-page) .footer-contact-links a {
+    color: rgba(255, 240, 221, 0.76);
+}
+
+body:has(.about-page) .footer-column .footer-link::after,
+body:has(.about-page) .footer-address-link::after {
+    background: #d5aa73;
+}
+
+body:has(.about-page) .footer-origin span {
+    background: #d5aa73;
+    box-shadow: 0 0 14px rgba(213, 170, 115, 0.74);
+}
+
+@media (max-width: 1050px) {
+    .footer-cta {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .footer-main {
+        grid-template-columns: minmax(180px, 0.75fr) minmax(280px, 1.25fr);
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 700px) {
+    .site-footer-grid {
+        background-size: 48px 48px;
+    }
+
+    .footer-cta {
+        gap: 34px;
+        padding: 68px 0 52px;
+    }
+
+    .footer-eyebrow {
+        margin-bottom: 18px;
+        font-size: 0.64rem;
+    }
+
+    .footer-cta h2 {
+        font-size: clamp(2.15rem, 11.5vw, 3.25rem);
+        line-height: 1.02;
+    }
+
+    .footer-cta-description {
+        margin-top: 20px;
+        font-size: 0.91rem;
+        line-height: 1.65;
+    }
+
+    .footer-cta-button {
+        min-height: 58px;
+        padding-left: 23px;
+    }
+
+    .footer-cta-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 44px 24px;
+        padding: 52px 0 48px;
+    }
+
+    .footer-brand,
+    .footer-contact {
+        grid-column: auto;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .footer-origin {
+        text-align: left;
+    }
+}
+
+@media (max-width: 390px) {
+    .footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand,
+    .footer-contact {
+        grid-column: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .footer-cta-button:hover,
+    .footer-cta-button:hover .footer-cta-arrow {
+        transform: none;
+    }
+}

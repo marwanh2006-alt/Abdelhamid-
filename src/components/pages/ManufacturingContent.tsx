@@ -19,7 +19,7 @@ export function ManufacturingContent() {
                       </div>
 
                       <h1 className="manufacturing-hero-title">
-                          Built to produce.<br />
+                          Precision wire manufacturing.<br />
                           Engineered to <span>perform.</span>
                       </h1>
 

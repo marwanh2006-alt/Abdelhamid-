@@ -94,11 +94,6 @@ export function AboutContent() {
 
           </section>
 
-      </main>
-
-
-
-
       <section className="about-facilities">
 
           <div className="facility-page-content">
@@ -363,6 +358,7 @@ export function AboutContent() {
           </div>
 
       </section>
+      </main>
     </>
   );
 }

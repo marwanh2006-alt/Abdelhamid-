@@ -16,7 +16,7 @@ export function SiteHeader() {
           />
 
           <div className="nav-logo-text" aria-hidden="true">
-            <h4>Abdelhamid</h4>
+            <strong>Abdelhamid</strong>
             <span>For Engineering Industries</span>
           </div>
         </Link>

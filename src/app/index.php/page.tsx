@@ -1,12 +1,6 @@
-import type { Metadata } from 'next';
-import HomePage from '../page';
+import { permanentRedirect } from 'next/navigation';
 
-/* Legacy URL kept for inbound links; it serves the same content as "/",
-   so point search engines at the canonical home page. */
-export const metadata: Metadata = {
-  description:
-    'Abdelhamid Engineering Industries manufactures precision wire and metal components for appliances, retail displays and industry. 38+ years, 18 countries served.',
-  alternates: { canonical: '/' },
-};
-
-export default HomePage;
+/** Consolidate legacy inbound links and ranking signals on the canonical home URL. */
+export default function LegacyHomePage() {
+  permanentRedirect('/');
+}

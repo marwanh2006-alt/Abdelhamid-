@@ -421,6 +421,9 @@
 
     text-align: center;
     color: #fff;
+
+    /* Clear the floating navbar as one composed text block. */
+    transform: translateY(30px);
 }
 
 .products-hero-content h1 {

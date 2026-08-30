@@ -73,6 +73,15 @@
         inset 0 0 25px rgba(255, 255, 255, 0.035);
 }
 
+/* The legacy .glass::before rule also contributes a gradient and fixed
+   dimensions. On Edge, that pseudo-layer can be left as a bright compositor
+   tile after same-route navigation. Stat cards only need the inset edge. */
+.hero-stat::before {
+    width: auto;
+    height: auto;
+    background: none;
+}
+
 /* Shared animated glass response. */
 .navbar,
 .hero-stat,
@@ -123,16 +132,13 @@
             rgba(255, 255, 255, 0.15),
             rgba(255, 255, 255, 0.045)
         );
-    backdrop-filter:
-        url(#abdelhamid-glass-distortion)
-        blur(20px)
-        saturate(150%)
-        brightness(108%);
-    -webkit-backdrop-filter:
-        url(#abdelhamid-glass-distortion)
-        blur(20px)
-        saturate(150%)
-        brightness(108%);
+    /* Windows Chromium can intermittently paint a sharp, full-height tile on
+       repeated compositor updates whenever these adjacent cards use any
+       backdrop filter. Keep the same translucent glass styling as a static
+       surface so Edge has no filtered card layer to tile. */
+    background-color: rgba(12, 18, 32, 0.18);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 .hero-stat:hover {
@@ -145,6 +151,7 @@
             rgba(255, 255, 255, 0.22),
             rgba(255, 255, 255, 0.065)
         );
+    background-color: rgba(12, 18, 32, 0.14);
 }
 
 .hero-badge {
@@ -162,7 +169,6 @@
 @supports not (backdrop-filter: url(#abdelhamid-glass-distortion)) {
     .glass,
     .navbar,
-    .hero-stat,
     .hero-badge {
         backdrop-filter:
             blur(24px)

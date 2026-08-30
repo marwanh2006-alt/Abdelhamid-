@@ -18,6 +18,7 @@
 @import "../../public/assets/css/pages/manufacturing-certifications-redesign.css";
 @import "../../public/assets/css/components/glass.css";
 @import "../../public/assets/css/components/buttons.css";
+@import "../../public/assets/css/components/footer.css";
 @import "../../public/assets/css/components/navbar.css";
 @import "../../public/assets/css/components/back-to-top.css";
 @import "../../public/assets/css/core/mobile-experience.css";
@@ -73,7 +74,12 @@
 
 @layer components {
   .motion-page {
-    @apply relative isolate min-h-screen overflow-x-clip;
+    @apply relative isolate min-h-screen w-full overflow-x-clip;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
   }
 
   .touch-surface {

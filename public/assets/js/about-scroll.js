@@ -591,6 +591,43 @@
 
 
         /* ==================================================
+           HAND OFF TO THE SHARED FOOTER
+
+           The About page uses one-screen section transitions on
+           desktop. Once the final facility panel is reached, return
+           control to native scrolling so the taller shared footer is
+           fully reachable. Scrolling back to the top of that panel
+           restores the section transition system.
+        ================================================== */
+
+        function shouldUseNativeFooterScroll(direction) {
+
+            const lastSection =
+                sections[sections.length - 1];
+
+            const lastSectionTop =
+                lastSection.offsetTop;
+
+            if (
+                direction > 0 &&
+                window.scrollY >=
+                    lastSectionTop - landingTolerance
+            ) {
+
+                return true;
+
+            }
+
+            return (
+                direction < 0 &&
+                window.scrollY >
+                    lastSectionTop + landingTolerance
+            );
+
+        }
+
+
+        /* ==================================================
            MOUSE WHEEL
         ================================================== */
 
@@ -623,6 +660,11 @@
                 const magnitude = Math.abs(event.deltaY);
 
                 if (!direction) {
+                    return;
+                }
+
+                if (shouldUseNativeFooterScroll(direction)) {
+                    clearWheelGesture();
                     return;
                 }
 
@@ -823,14 +865,12 @@
                     event.key === "ArrowDown" ||
                     event.key === "PageDown"
                 ) {
-
-                    event.preventDefault();
-
-
                     if (
                         currentSection <
                         sections.length - 1
                     ) {
+
+                        event.preventDefault();
 
                         goToSection(
                             currentSection + 1
@@ -847,13 +887,17 @@
                     event.key === "ArrowUp" ||
                     event.key === "PageUp"
                 ) {
+                    if (shouldUseNativeFooterScroll(-1)) {
 
-                    event.preventDefault();
+                        return;
 
+                    }
 
                     if (
                         currentSection > 0
                     ) {
+
+                        event.preventDefault();
 
                         goToSection(
                             currentSection - 1
@@ -885,9 +929,13 @@
 
                     event.preventDefault();
 
-                    goToSection(
-                        sections.length - 1
-                    );
+                    window.scrollTo({
+                        top: document.documentElement.scrollHeight,
+                        left: 0,
+                        behavior: "auto"
+                    });
+
+                    updateCurrentSection();
 
                 }
 
@@ -941,4 +989,3 @@
     window.__abdelhamidEffects['/assets/js/about-scroll.js'] = initAboutScroll;
 
 })();
-

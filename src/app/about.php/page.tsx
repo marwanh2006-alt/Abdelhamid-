@@ -1,22 +1,15 @@
-import type { Metadata } from 'next';
-import { BackToTop } from '@/components/BackToTop';
-import { PageShell } from '@/components/PageShell';
 import { AboutContent } from '@/components/pages/AboutContent';
+import { createPageMetadata } from '@/lib/site';
 
-export const metadata: Metadata = {
-  title: 'About Us',
+export const metadata = createPageMetadata({
+  title: 'Egyptian Wire Manufacturer Since 1988',
   description:
     'Family-owned Egyptian wire manufacturer since 1988. Explore our 10,000 m² facilities, 4,000-ton annual capacity and the team of 200+ behind Abdelhamid.',
-  alternates: { canonical: '/about.php' },
-};
+  path: '/about.php',
+  image: '/assets/images/about/building.jpeg',
+  imageAlt: 'Abdelhamid Engineering Industries facility in Tenth of Ramadan City',
+});
 
 export default function AboutPage() {
-  return (
-    <PageShell
-      scripts={['/assets/js/about-scroll.js', '/assets/js/back-to-top.js']}
-    >
-      <AboutContent />
-      <BackToTop variant="about" />
-    </PageShell>
-  );
+  return <AboutContent />;
 }

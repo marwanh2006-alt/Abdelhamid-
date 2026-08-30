@@ -1,14 +1,16 @@
-import type { Metadata } from 'next';
 import { BackToTop } from '@/components/BackToTop';
 import { PageShell } from '@/components/PageShell';
 import { ProductsContent } from '@/components/pages/ProductsContent';
+import { createPageMetadata } from '@/lib/site';
 
-export const metadata: Metadata = {
-  title: 'Products',
+export const metadata = createPageMetadata({
+  title: 'Industrial Wire Products & Components',
   description:
     'Browse wire components for refrigerators, dishwashers and ovens, plus retail display systems, shopping baskets and wire mesh decking for storage racking.',
-  alternates: { canonical: '/products.php' },
-};
+  path: '/products.php',
+  image: '/assets/images/products/wire-components.png',
+  imageAlt: 'Precision industrial wire components manufactured by Abdelhamid',
+});
 
 export default function ProductsPage() {
   return (

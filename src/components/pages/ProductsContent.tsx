@@ -18,7 +18,8 @@ export function ProductsContent() {
                   </span>
 
                   <h1>
-                      Engineered for <span>industry.</span>
+                      Precision wire components,<br />
+                      <span>engineered for industry.</span>
                   </h1>
 
                   <p>

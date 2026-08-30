@@ -432,10 +432,9 @@ html:has(.quote-page) {
 }
 
 /* ==========================================================
-   SCROLL LOCK — About page only
-   Other pages use normal scrolling. CSS snap on html would
-   still trap the wheel even after the Home/Manufacturing
-   scripts are removed.
+   NORMAL DOCUMENT SCROLLING — ALL PAGES
+   Section snapping stays disabled so wheel, trackpad, keyboard
+   and touch input always use the browser's native scrolling.
 ========================================================== */
 
 html {
@@ -456,14 +455,9 @@ main > section,
     scroll-snap-stop: normal;
 }
 
+/* The About page also uses native scrolling on every viewport. */
 html:has(.about-page) {
-    scroll-snap-type: y mandatory;
-}
-
-.about-page .about-opening,
-.about-page .about-facilities {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+    scroll-snap-type: none;
 }
 
 /* ==========================================================
@@ -652,4 +646,3 @@ html:has(.about-page) {
         padding: 0.85rem;
     }
 }
-

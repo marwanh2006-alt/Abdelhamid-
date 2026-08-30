@@ -11,3 +11,5 @@ out/
 # Agent skill installs (managed via `npx skills add`)
 .claude/skills/
 .agents/skills/
+
+env.download

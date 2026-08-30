@@ -84,7 +84,7 @@
     line-height: 1.05;
 }
 
-.nav-logo-text h4 {
+.nav-logo-text strong {
     margin: 0;
     color: #ffffff !important;
     font-family: "Poppins", sans-serif;
@@ -262,7 +262,7 @@
         height: 36px;
     }
 
-    .nav-logo-text h4 {
+    .nav-logo-text strong {
         font-size: 11px;
     }
 

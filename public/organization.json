@@ -3,12 +3,24 @@
   "@type": "Organization",
   "name": "Abdelhamid Engineering Industries",
   "alternateName": "ABD-ELHAMID",
-  "url": "https://abdelhameed-ten.vercel.app",
-  "logo": "https://abdelhameed-ten.vercel.app/assets/logos/logo.png",
+  "@id": "https://abdelhamid.co/#organization",
+  "url": "https://abdelhamid.co",
+  "logo": "https://abdelhamid.co/assets/logos/logo.png",
   "foundingDate": "1988",
   "description": "Egyptian manufacturer of precision wire and metal components for household appliances, retail displays and industrial applications.",
+  "email": "info@abdelhamid.co",
+  "telephone": "+20554488524",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "Industrial Zone C5, Plot #1 & 2",
+    "postOfficeBoxNumber": "167",
+    "addressLocality": "Tenth of Ramadan City",
     "addressCountry": "EG"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "telephone": "+201001485788",
+    "email": "info@abdelhamid.co"
   }
 }

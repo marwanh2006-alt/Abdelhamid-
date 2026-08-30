@@ -220,7 +220,7 @@ h6 {
  * NAVBAR LOGO TEXT
  * ----------------------------------------------------*/
 
-.nav-logo-text h4 {
+.nav-logo-text strong {
     font-size: 14px;
     font-weight: 700;
     line-height: 1.05;
@@ -366,7 +366,7 @@ select {
         font-size: 12px;
     }
 
-    .nav-logo-text h4 {
+    .nav-logo-text strong {
         font-size: 12px;
     }
 

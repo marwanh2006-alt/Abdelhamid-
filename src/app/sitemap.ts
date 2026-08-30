@@ -10,6 +10,7 @@ const routes: Array<{ path: string; priority: number }> = [
   { path: '/about.php', priority: 0.7 },
   { path: '/quote.php', priority: 0.7 },
   { path: '/contact.php', priority: 0.6 },
+  { path: '/privacy.php', priority: 0.3 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

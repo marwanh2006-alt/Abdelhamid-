@@ -3,6 +3,7 @@
 /* Migrated from the legacy src/content/quote.html fragment. */
 
 import { useState, type FormEvent } from 'react';
+import { SiteLink } from '@/components/SiteLink';
 
 export function QuoteContent() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -40,7 +41,7 @@ export function QuoteContent() {
 
   return (
     <>
-      <main className="quote-page relative isolate overflow-x-clip">
+      <main id="main-content" tabIndex={-1} className="quote-page relative isolate overflow-x-clip">
 
 
 
@@ -155,7 +156,7 @@ export function QuoteContent() {
                                       Your Name
                                   </label>
 
-                                  <input id="quote-name" type="text" name="name" placeholder="Your full name" autoComplete="name" required={true} defaultValue="" />
+                                  <input id="quote-name" type="text" name="name" placeholder="Your full name" autoComplete="name" maxLength={100} required={true} defaultValue="" />
 
 
                               </div>
@@ -167,7 +168,7 @@ export function QuoteContent() {
                                       Company Name
                                   </label>
 
-                                  <input id="quote-company" type="text" name="company" placeholder="Your company name" autoComplete="organization" defaultValue="" />
+                                  <input id="quote-company" type="text" name="company" placeholder="Your company name" autoComplete="organization" maxLength={150} defaultValue="" />
 
 
                               </div>
@@ -185,7 +186,7 @@ export function QuoteContent() {
                                       Email Address
                                   </label>
 
-                                  <input id="quote-email" type="email" name="email" placeholder="your@email.com" autoComplete="email" required={true} defaultValue="" />
+                                  <input id="quote-email" type="email" name="email" placeholder="your@email.com" autoComplete="email" maxLength={254} required={true} defaultValue="" />
 
 
                               </div>
@@ -197,7 +198,7 @@ export function QuoteContent() {
                                       Phone Number
                                   </label>
 
-                                  <input id="quote-phone" type="tel" name="phone" placeholder="+20 100 000 0000" autoComplete="tel" defaultValue="" />
+                                  <input id="quote-phone" type="tel" name="phone" placeholder="+20 100 000 0000" autoComplete="tel" maxLength={40} defaultValue="" />
 
 
                               </div>
@@ -213,7 +214,7 @@ export function QuoteContent() {
                                   Project / Product
                               </label>
 
-                              <input id="quote-project" type="text" name="project" placeholder="What are you looking to manufacture?" required={true} defaultValue="" />
+                              <input id="quote-project" type="text" name="project" placeholder="What are you looking to manufacture?" maxLength={200} required={true} defaultValue="" />
 
 
                           </div>
@@ -275,6 +276,11 @@ export function QuoteContent() {
 
 
                           {/* SUBMIT */}
+
+                          <p className="form-privacy-note">
+                              We use your information and attachments to review this request. See our{' '}
+                              <SiteLink href="/privacy.php">privacy policy</SiteLink>.
+                          </p>
 
                           <div className="quote-submit-area">
 

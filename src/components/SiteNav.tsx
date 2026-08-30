@@ -43,7 +43,11 @@ export function SiteNav() {
           ))}
 
           <li className="mobile-nav-quote">
-            <SiteLink href="/quote.php" className={active === 'quote' ? 'active' : ''}>
+            <SiteLink
+              href="/quote.php"
+              className={active === 'quote' ? 'active' : ''}
+              aria-current={active === 'quote' ? 'page' : undefined}
+            >
               <span>Get a Quote</span>
             </SiteLink>
           </li>
@@ -51,7 +55,11 @@ export function SiteNav() {
       </nav>
 
       <div className="nav-cta">
-        <SiteLink href="/quote.php" className="btn glass btn-navbar">
+        <SiteLink
+          href="/quote.php"
+          className="btn glass btn-navbar"
+          aria-current={active === 'quote' ? 'page' : undefined}
+        >
           Get a Quote
         </SiteLink>
 

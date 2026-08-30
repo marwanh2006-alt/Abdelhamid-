@@ -5,7 +5,7 @@ import { SiteLink } from '@/components/SiteLink';
 export function HomeContent() {
   return (
     <>
-      <main className="relative isolate overflow-x-clip">
+      <main id="main-content" tabIndex={-1} className="relative isolate overflow-x-clip">
 
 
 
@@ -14,7 +14,15 @@ export function HomeContent() {
 
               {/* Background */}
               <div className="hero-background">
-                  <img src="/assets/images/heroo.jpeg" alt="" loading="eager" fetchPriority="high" />
+                  <img
+                      src="/assets/images/optimized/home/hero-desktop.webp"
+                      alt=""
+                      width="1600"
+                      height="944"
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority="high"
+                  />
               </div>
 
 
@@ -70,9 +78,9 @@ export function HomeContent() {
 
                   <div className="hero-stat glass">
 
-                      <h2>
+                      <strong className="hero-stat-number">
                           38+
-                      </h2>
+                      </strong>
 
                       <span>
                           Years of Experience
@@ -85,9 +93,9 @@ export function HomeContent() {
 
                   <div className="hero-stat glass">
 
-                      <h2>
+                      <strong className="hero-stat-number">
                           1000+
-                      </h2>
+                      </strong>
 
                       <span>
                           Industrial Projects
@@ -100,9 +108,9 @@ export function HomeContent() {
 
                   <div className="hero-stat glass">
 
-                      <h2>
+                      <strong className="hero-stat-number">
                           18
-                      </h2>
+                      </strong>
 
                       <span>
                           Countries Served
@@ -115,9 +123,9 @@ export function HomeContent() {
 
                   <div className="hero-stat glass">
 
-                      <h2>
+                      <strong className="hero-stat-number">
                           $5M+
-                      </h2>
+                      </strong>
 
                       <span>
                           Annual Turnover
@@ -130,9 +138,9 @@ export function HomeContent() {
 
                   <div className="hero-stat glass">
 
-                      <h2>
+                      <strong className="hero-stat-number">
                           #Top 1
-                      </h2>
+                      </strong>
 
                       <span>
                           Africa &amp; Middle East

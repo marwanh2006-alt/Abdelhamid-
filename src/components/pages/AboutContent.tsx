@@ -3,7 +3,7 @@
 export function AboutContent() {
   return (
     <>
-      <main className="about-page relative isolate overflow-x-clip">
+      <main id="main-content" tabIndex={-1} className="about-page relative isolate overflow-x-clip">
 
           <section className="about-opening" aria-label="About Abdelhamid Engineering Industries">
 

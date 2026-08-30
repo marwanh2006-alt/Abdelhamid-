@@ -6,4 +6,5 @@ export const SITE_ROUTES = [
   '/manufacturing.php',
   '/contact.php',
   '/quote.php',
+  '/privacy.php',
 ] as const;

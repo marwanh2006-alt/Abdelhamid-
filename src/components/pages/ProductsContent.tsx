@@ -3,7 +3,7 @@
 export function ProductsContent() {
   return (
     <>
-      <main className="relative isolate overflow-x-clip">
+      <main id="main-content" tabIndex={-1} className="relative isolate overflow-x-clip">
 
 
 

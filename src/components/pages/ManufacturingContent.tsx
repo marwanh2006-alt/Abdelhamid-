@@ -3,7 +3,7 @@
 export function ManufacturingContent() {
   return (
     <>
-      <main className="manufacturing-page relative isolate overflow-x-clip">
+      <main id="main-content" tabIndex={-1} className="manufacturing-page relative isolate overflow-x-clip">
 
 
 

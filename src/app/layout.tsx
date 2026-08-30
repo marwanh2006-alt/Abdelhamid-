@@ -67,6 +67,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
       </head>
       <body suppressHydrationWarning className="bg-ink-950 font-sans text-white antialiased">
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
         <ExtensionGuard />
         <ClientChrome />
         <div id="motion-root" className="motion-page relative isolate min-h-screen overflow-x-clip">

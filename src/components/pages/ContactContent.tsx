@@ -3,6 +3,7 @@
 /* Migrated from the legacy src/content/contact.html fragment. */
 
 import { useState, type FormEvent } from 'react';
+import { SiteLink } from '@/components/SiteLink';
 
 export function ContactContent() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -41,7 +42,7 @@ export function ContactContent() {
 
   return (
     <>
-      <main className="contact-page relative isolate overflow-x-clip">
+      <main id="main-content" tabIndex={-1} className="contact-page relative isolate overflow-x-clip">
 
 
 
@@ -191,8 +192,9 @@ export function ContactContent() {
                                   </h3>
 
                                   <p>
-                                      +20 55 44 88 524&nbsp;&nbsp;,&nbsp;&nbsp;
-                                      +20 55 44 88 525
+                                      <a href="tel:+20554488524">+20 55 44 88 524</a>
+                                      &nbsp;&nbsp;,&nbsp;&nbsp;
+                                      <a href="tel:+20554488525">+20 55 44 88 525</a>
                                   </p>
 
                               </div>
@@ -227,7 +229,7 @@ export function ContactContent() {
                                   </h3>
 
                                   <p>
-                                      +20 100 148 57 88
+                                      <a href="tel:+201001485788">+20 100 148 57 88</a>
                                   </p>
 
                               </div>
@@ -373,7 +375,7 @@ export function ContactContent() {
                                       Full Name
                                   </span>
 
-                                  <input id="contact-full-name" type="text" name="full_name" placeholder="Full Name" autoComplete="name" defaultValue="" required={true} />
+                                  <input id="contact-full-name" type="text" name="full_name" placeholder="Full Name" autoComplete="name" maxLength={100} defaultValue="" required={true} />
 
 
                               </label>
@@ -385,7 +387,7 @@ export function ContactContent() {
                                       Company Name
                                   </span>
 
-                                  <input id="contact-company-name" type="text" name="company_name" placeholder="Company Name" autoComplete="organization" defaultValue="" />
+                                  <input id="contact-company-name" type="text" name="company_name" placeholder="Company Name" autoComplete="organization" maxLength={150} defaultValue="" />
 
 
                               </label>
@@ -404,7 +406,7 @@ export function ContactContent() {
                                       Email Address
                                   </span>
 
-                                  <input id="contact-email" type="email" name="email" placeholder="Email Address" autoComplete="email" defaultValue="" required={true} />
+                                  <input id="contact-email" type="email" name="email" placeholder="Email Address" autoComplete="email" maxLength={254} defaultValue="" required={true} />
 
 
                               </label>
@@ -416,7 +418,7 @@ export function ContactContent() {
                                       Phone Number
                                   </span>
 
-                                  <input id="contact-phone" type="tel" name="phone" placeholder="Phone Number" autoComplete="tel" defaultValue="" />
+                                  <input id="contact-phone" type="tel" name="phone" placeholder="Phone Number" autoComplete="tel" maxLength={40} defaultValue="" />
 
 
                               </label>
@@ -433,7 +435,7 @@ export function ContactContent() {
                                   Subject
                               </span>
 
-                              <input id="contact-subject" type="text" name="subject" placeholder="Subject" defaultValue="" required={true} />
+                              <input id="contact-subject" type="text" name="subject" placeholder="Subject" maxLength={150} defaultValue="" required={true} />
 
 
                           </label>
@@ -448,7 +450,7 @@ export function ContactContent() {
                                   Your Message
                               </span>
 
-                              <textarea id="contact-message" name="message" placeholder="Your Message" required={true}></textarea>
+                              <textarea id="contact-message" name="message" placeholder="Your Message" maxLength={5000} required={true}></textarea>
 
 
                           </label>
@@ -456,6 +458,11 @@ export function ContactContent() {
 
 
                           {/* SUBMIT */}
+
+                          <p className="form-privacy-note">
+                              We use your information only to respond to this enquiry. See our{' '}
+                              <SiteLink href="/privacy.php">privacy policy</SiteLink>.
+                          </p>
 
                           <button type="submit" className="contact-submit" disabled={status === 'sending'}>
 

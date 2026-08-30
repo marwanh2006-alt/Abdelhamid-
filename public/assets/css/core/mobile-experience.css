@@ -326,7 +326,7 @@
         display: none;
     }
 
-    .hero-stat h2 {
+    .hero-stat strong {
         font-size: 22px;
     }
 

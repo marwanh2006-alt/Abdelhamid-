@@ -7,13 +7,14 @@ const companyLinks = [
   { href: '/manufacturing.php', label: 'Manufacturing' },
   { href: '/contact.php', label: 'Contact' },
   { href: '/quote.php', label: 'Request a quote' },
+  { href: '/privacy.php', label: 'Privacy policy' },
 ];
 
 export function SiteFooter() {
   const currentYear = new Date().getUTCFullYear();
 
   return (
-    <footer className="site-footer" aria-labelledby="footer-brand-title">
+    <footer id="site-footer" className="site-footer" aria-labelledby="footer-brand-title">
       <div className="site-footer-grid" aria-hidden="true" />
 
       <div className="container site-footer-shell">

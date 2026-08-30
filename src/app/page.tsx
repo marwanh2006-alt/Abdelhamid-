@@ -12,7 +12,7 @@ export const metadata = createPageMetadata({
 });
 
 export default function HomePage() {
-  preload('/assets/images/optimized/home/hero-desktop.webp', { as: 'image', fetchPriority: 'high' });
+  preload('/assets/images/heroo.jpeg', { as: 'image', fetchPriority: 'high' });
 
   return <HomeContent />;
 }

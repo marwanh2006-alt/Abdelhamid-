@@ -15,7 +15,7 @@ export function HomeContent() {
               {/* Background */}
               <div className="hero-background">
                   <img
-                      src="/assets/images/optimized/home/hero-desktop.webp"
+                      src="/assets/images/heroo.jpeg"
                       alt=""
                       width="1600"
                       height="944"

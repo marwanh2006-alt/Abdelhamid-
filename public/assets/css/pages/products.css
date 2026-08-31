@@ -918,8 +918,30 @@
     gap: 22px;
 }
 
+/* Three-card categories keep the same desktop card width as the four-column
+   galleries, but center the complete row instead of leaving an empty column. */
+@media (min-width: 1101px) {
+    #cable-trays .showroom-products,
+    #dishwasher-racks .showroom-products {
+        width: calc(75% - 5.5px);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-inline: auto;
+    }
+}
+
+/* At the two-column breakpoint, center the third card on its own row. */
+@media (min-width: 521px) and (max-width: 800px) {
+    #cable-trays .showroom-product-card:last-child,
+    #dishwasher-racks .showroom-product-card:last-child {
+        width: calc(50% - 11px);
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+}
+
 .showroom-product-card {
     overflow: hidden;
+    scroll-margin-top: 130px;
     border: 1px solid rgba(20, 27, 48, 0.08);
     border-radius: 22px;
     background: #ffffff;
@@ -965,24 +987,71 @@
     text-transform: uppercase;
 }
 
-.showroom-product-info h3 {
+.showroom-product-info .showroom-product-name {
     margin: 0;
     color: #151a2b;
     font-size: 1rem;
+    font-weight: 700;
     line-height: 1.25;
 }
 
+.showroom-product-permalink {
+    color: inherit;
+    text-decoration: none;
+}
+
+.showroom-product-permalink:focus-visible {
+    outline: 2px solid #5d70ff;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.showroom-category-page-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.showroom-category-page-link:focus-visible {
+    outline: 2px solid #5d70ff;
+    outline-offset: 6px;
+    border-radius: 4px;
+}
+
+.showroom-category-page-title {
+    max-width: 1050px;
+    margin: 0 0 18px;
+    color: #111728;
+    font-size: clamp(2.6rem, 4.2vw, 5rem);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+}
+
+/* Category detail pages start beneath the shared glass navbar. Give only that
+   navbar zone the same navy canvas as the Manufacturing hero, then return to
+   the existing light showroom before the category copy begins. */
+.product-category-page .product-category-detail {
+    background:
+        linear-gradient(
+            180deg,
+            var(--navy) 0,
+            var(--navy) 132px,
+            #f5f7fb 132px,
+            #f5f7fb 100%
+        );
+}
+
 /* Sector 01 keeps its user-facing product names above the category label. */
-#mesh-decks .showroom-product-info h3,
-#rest-various-products .showroom-product-info h3,
-#shopping-baskets .showroom-product-info h3,
-#wire-products .showroom-product-info h3,
-#gas-cooker-shelves .showroom-product-info h3,
-#refrigerator-shelves .showroom-product-info h3,
-#pan-supports .showroom-product-info h3,
-#cable-trays .showroom-product-info h3,
-#dishwasher-racks .showroom-product-info h3,
-#protection-screens .showroom-product-info h3 {
+#mesh-decks .showroom-product-info .showroom-product-name,
+#rest-various-products .showroom-product-info .showroom-product-name,
+#shopping-baskets .showroom-product-info .showroom-product-name,
+#wire-products .showroom-product-info .showroom-product-name,
+#gas-cooker-shelves .showroom-product-info .showroom-product-name,
+#refrigerator-shelves .showroom-product-info .showroom-product-name,
+#pan-supports .showroom-product-info .showroom-product-name,
+#cable-trays .showroom-product-info .showroom-product-name,
+#dishwasher-racks .showroom-product-info .showroom-product-name,
+#protection-screens .showroom-product-info .showroom-product-name {
     min-height: 2.5em;
     margin-bottom: 7px;
 }
@@ -1358,6 +1427,17 @@ html {
 
 @media (max-width: 700px) {
 
+    .product-category-page .product-category-detail {
+        background:
+            linear-gradient(
+                180deg,
+                var(--navy) 0,
+                var(--navy) 82px,
+                #f5f7fb 82px,
+                #f5f7fb 100%
+            );
+    }
+
     .products-hero {
         min-height: 360px;
     }
@@ -1419,19 +1499,24 @@ html {
         letter-spacing: 0.1em;
     }
 
-    #mesh-decks .showroom-product-info h3,
-    #rest-various-products .showroom-product-info h3,
-    #shopping-baskets .showroom-product-info h3,
-    #wire-products .showroom-product-info h3,
-    #gas-cooker-shelves .showroom-product-info h3,
-    #refrigerator-shelves .showroom-product-info h3,
-    #pan-supports .showroom-product-info h3,
-    #cable-trays .showroom-product-info h3,
-    #dishwasher-racks .showroom-product-info h3,
-    #protection-screens .showroom-product-info h3 {
+    #mesh-decks .showroom-product-info .showroom-product-name,
+    #rest-various-products .showroom-product-info .showroom-product-name,
+    #shopping-baskets .showroom-product-info .showroom-product-name,
+    #wire-products .showroom-product-info .showroom-product-name,
+    #gas-cooker-shelves .showroom-product-info .showroom-product-name,
+    #refrigerator-shelves .showroom-product-info .showroom-product-name,
+    #pan-supports .showroom-product-info .showroom-product-name,
+    #cable-trays .showroom-product-info .showroom-product-name,
+    #dishwasher-racks .showroom-product-info .showroom-product-name,
+    #protection-screens .showroom-product-info .showroom-product-name {
         margin-bottom: 4px;
         font-size: 0.78rem;
         line-height: 1.25;
+    }
+
+    .showroom-category-page-title {
+        margin-bottom: 10px;
+        font-size: clamp(2rem, 9vw, 2.45rem);
     }
 
     #mesh-decks .showroom-product-info,

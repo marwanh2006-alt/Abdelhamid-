@@ -12,12 +12,20 @@ export function absoluteUrl(path = '/'): string {
 
 export const company = {
   name: 'Abdelhamid Engineering Industries',
-  alternateName: 'ABD-ELHAMID',
+  alternateNames: [
+    'ABD-ELHAMID',
+    'Abd Elhamid Co.',
+    'Abd Elhamid For Engineering Industries',
+    'Abd Elhamid Company For Engineering Industries',
+    'Abdelhameed Engineering Industries',
+    'Abdelhameed Engineering',
+  ],
   description:
     'Egyptian manufacturer of precision wire and metal components for household appliances, retail displays and industrial applications.',
   email: 'info@abdelhamid.co',
   founded: '1988',
   mapsUrl: 'https://maps.app.goo.gl/em1TghayvmybhTAb7',
+  linkedInUrl: 'https://www.linkedin.com/company/abd-elhamid-co-/',
   address: {
     street: 'Industrial Zone C5, Plot #1 & 2',
     postOfficeBox: '167',
@@ -37,7 +45,8 @@ export const organizationJsonLd = {
   '@type': 'Organization',
   '@id': `${siteUrl}/#organization`,
   name: company.name,
-  alternateName: company.alternateName,
+  legalName: company.name,
+  alternateName: company.alternateNames,
   url: absoluteUrl('/'),
   logo: absoluteUrl('/assets/logos/logo.png'),
   foundingDate: company.founded,
@@ -58,6 +67,7 @@ export const organizationJsonLd = {
     email: company.email,
   },
   areaServed: ['Egypt', 'Africa', 'Middle East'],
+  sameAs: [company.linkedInUrl, company.mapsUrl],
   knowsAbout: [
     'Precision wire components',
     'Household appliance components',
@@ -73,7 +83,7 @@ export const websiteJsonLd = {
   '@id': `${siteUrl}/#website`,
   url: absoluteUrl('/'),
   name: company.name,
-  alternateName: company.alternateName,
+  alternateName: company.alternateNames,
   inLanguage: 'en',
   publisher: {
     '@id': `${siteUrl}/#organization`,
@@ -86,6 +96,7 @@ type PageMetadataOptions = {
   path: string;
   image: string;
   imageAlt: string;
+  appendBrand?: boolean;
 };
 
 /** Keep search and social metadata unique, aligned, and canonical per route. */
@@ -95,8 +106,9 @@ export function createPageMetadata({
   path,
   image,
   imageAlt,
+  appendBrand = true,
 }: PageMetadataOptions): Metadata {
-  const socialTitle = `${title} | Abdelhamid`;
+  const socialTitle = appendBrand ? `${title} | Abdelhamid` : title;
   const canonicalUrl = absoluteUrl(path);
   const socialImageUrl = absoluteUrl(image);
 

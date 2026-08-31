@@ -15,7 +15,9 @@ const NAV_ITEMS: Array<{ key: NavKey; href: string; label: string }> = [
 
 function navKeyFromPath(pathname: string): NavKey {
   if (pathname.includes('about.php')) return 'about';
-  if (pathname.includes('products.php')) return 'products';
+  if (pathname === '/products.php' || pathname.startsWith('/products/')) {
+    return 'products';
+  }
   if (pathname.includes('manufacturing.php')) return 'manufacturing';
   if (pathname.includes('contact.php')) return 'contact';
   if (pathname.includes('quote.php')) return 'quote';

@@ -39,6 +39,18 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/:path*',
+        has: [
+          {
+            type: 'header',
+            key: 'x-forwarded-host',
+            value: 'www\\.abdelhamid\\.co(?::\\d+)?(?:,.*)?',
+          },
+        ],
+        destination: 'https://abdelhamid.co/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
         has: [{ type: 'host', value: 'www.abdelhamid.co' }],
         destination: 'https://abdelhamid.co/:path*',
         permanent: true,
@@ -46,6 +58,41 @@ const nextConfig: NextConfig = {
       {
         source: '/index.php',
         destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/index.html',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/about',
+        destination: '/about.php',
+        permanent: true,
+      },
+      {
+        source: '/products',
+        destination: '/products.php',
+        permanent: true,
+      },
+      {
+        source: '/facilities',
+        destination: '/manufacturing.php',
+        permanent: true,
+      },
+      {
+        source: '/manufacturing',
+        destination: '/manufacturing.php',
+        permanent: true,
+      },
+      {
+        source: '/contact',
+        destination: '/contact.php',
+        permanent: true,
+      },
+      {
+        source: '/quote',
+        destination: '/quote.php',
         permanent: true,
       },
     ];
